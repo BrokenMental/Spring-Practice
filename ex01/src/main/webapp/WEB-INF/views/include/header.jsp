@@ -5,7 +5,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>GE People Homepage</title>
+    <title>AdminLTE 2 | Dashboard</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.4 -->
     <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -30,7 +30,7 @@
       <!-- jQuery 2.1.4 -->
     <script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
     
-  <body class="skin-green sidebar-mini">
+  <body class="skin-blue sidebar-mini">
     <div class="wrapper">
       
       <header class="main-header">
@@ -39,7 +39,7 @@
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>A</b>LT</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>컴퓨터정보과</b> </span>
+          <span class="logo-lg"><b>Zerock</b> PROJECT</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -243,16 +243,16 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="/resources/dist/img/201644000.png" class="user-image" alt="User Image"/>
-                  <span class="hidden-xs">모 죽</span>
+                  <img src="/resources/dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
+                  <span class="hidden-xs">Alexander Pierce</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="/resources/dist/img/201644000.png" class="img-circle" alt="User Image" />
+                    <img src="/resources/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      	모 죽 - 인하공업전문대학 컴퓨터정보과 개발자
-                      <small>Member since Oct. 2016</small>
+                      Alexander Pierce - Web Developer
+                      <small>Member since Nov. 2012</small>
                     </p>
                   </li>
                   <!-- Menu Body -->
@@ -293,15 +293,15 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="/resources/dist/img/201644000.png" class="img-circle" alt="User Image" />
+              <img src="/resources/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-              <p>모 죽</p>
+              <p>Alexander Pierce</p>
 
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
-<!--           search form
+          <!-- search form -->
           <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
               <input type="text" name="q" class="form-control" placeholder="Search..."/>
@@ -310,10 +310,10 @@
               </span>
             </div>
           </form>
-          /.search form -->
+          <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
-            <!-- <li class="header">MAIN NAVIGATION</li> -->
+            <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
@@ -339,11 +339,6 @@
             <li>
               <a href="../widgets.html">
                 <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">new</small>
-              </a>
-            </li>
-            <li>
-              <a href="../board/register">
-                <i class="fa fa-spinner fa-spin fa-1x fa-fw"></i> <span>  게시등록</span> <small class="label pull-right bg-green">등록</small>
               </a>
             </li>
             <li class="treeview">

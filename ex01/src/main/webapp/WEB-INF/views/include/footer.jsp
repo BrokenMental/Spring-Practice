@@ -2,9 +2,9 @@
     pageEncoding="UTF-8"%>
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
+          <b>Version</b> 2.0
         </div>
-        <strong>All content is Copyright &copy; <a href="http://perhapslove.net">972's Home</a>
-        </strong> All rights reserved.
+        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
       </footer>
       
       <!-- Control Sidebar -->      
@@ -16,8 +16,8 @@
           <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
         </ul>
         <!-- Tab panes -->
-        <!-- <div class="tab-content">
-          Home tab content
+        <div class="tab-content">
+          <!-- Home tab content -->
           <div class="tab-pane" id="control-sidebar-home-tab">
             <h3 class="control-sidebar-heading">Recent Activity</h3>
             <ul class='control-sidebar-menu'>
@@ -57,7 +57,7 @@
                   </div>
                 </a>
               </li>
-            </ul>/.control-sidebar-menu
+            </ul><!-- /.control-sidebar-menu -->
 
             <h3 class="control-sidebar-heading">Tasks Progress</h3> 
             <ul class='control-sidebar-menu'>
@@ -105,9 +105,9 @@
                   </div>                                    
                 </a>
               </li>               
-            </ul>/.control-sidebar-menu         
+            </ul><!-- /.control-sidebar-menu -->         
 
-          </div>/.tab-pane -->
+          </div><!-- /.tab-pane -->
           <!-- Stats tab content -->
           <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
           <!-- Settings tab content -->
