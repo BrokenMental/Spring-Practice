@@ -11,7 +11,6 @@
 	if (result == 'SUCCESS') {
 		alert("처리가 완료되었습니다.");
 	}
-	//안먹힌다.
 </script>
 
 <%@ include file="../include/header.jsp"%>
@@ -32,12 +31,12 @@
 						<th>REGDATE</th>
 						<th style="width: 40px">VIEWCNT</th>
 					</tr>
-
+					
 					<c:forEach items="${list}" var="boardVO">
 
 						<tr>
 							<td>${boardVO.bno}</td>
-							<td><a href='/board/read?bno=${boardVO.bno}'>${boardVO.title}</a></td>
+							<td><a href='/board/read?bno=${boardVO.bno}'>${boardVO.title}</a></td> <!-- jsp의  %=와 동일한 역할을 한다. -->
 							<td><${boardVO.writer}</td>
 							<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 									value="${boardVO.regdate}" /></td>
