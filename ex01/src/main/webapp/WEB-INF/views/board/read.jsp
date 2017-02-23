@@ -44,8 +44,10 @@
 	<!-- /.col (left) -->
 </div>
 <!--  /.row --> </section>
+<div style="bottom: 0px;">
+	<%@ include file="../include/footer.jsp"%>
+</div>
 <!-- /.content -->
-<%@ include file="../include/footer.jsp"%>
 
 <script type="text/javascript">
 	$(document).ready(function() {

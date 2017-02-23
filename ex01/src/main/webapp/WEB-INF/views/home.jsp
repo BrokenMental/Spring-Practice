@@ -21,4 +21,6 @@
 	<!--  /.row -->
 </section>
 <!-- /.content -->
-<%@ include file="include/footer.jsp"%>
+<div style="bottom: 0px;">
+	<%@ include file="include/footer.jsp"%>
+</div>

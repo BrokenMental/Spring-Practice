@@ -4,7 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <script>
 	var result = '${msg}';
 
@@ -52,10 +51,9 @@
 						</c:if>
 
 						<c:forEach begin="${pageMaker.startPage}"
-							end="${pageMaker.endPage }" var="idx">
-							<li><c:out
-									value="${pageMaker.cri.page == idx?'class = active':''}" />> <a
-								href="listPage?page=${idx}">${idx}</a></li>
+							end="${pageMaker.endPage}" var="idx">
+							<li><c:out value="${pageMaker.cri.page == idx?'class =active':''}" />>
+							<a href="listPage?page=${idx}">${idx}</a></li>
 						</c:forEach>
 
 						<c:if test="${pageMaker.next && pageMaker.endPage > 0}">

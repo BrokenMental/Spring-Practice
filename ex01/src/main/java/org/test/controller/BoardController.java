@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.test.domain.BoardVO;
+import org.test.domain.Criteria;
+import org.test.domain.PageMaker;
 import org.test.service.BoardService;
 
 /****************************************
@@ -28,14 +30,6 @@ public class BoardController {
 
 	@Inject
 	private BoardService service;
-
-	@RequestMapping(value = "/register", method = RequestMethod.GET) // register페이지내의
-																		// GET하는
-																		// 요소들에
-																		// 대한 적용
-	public void registerGET(BoardVO board, Model model) throws Exception {
-		logger.info("register get ...........");
-	}
 
 	/*
 	 * @RequestMapping(value = "/register", method = RequestMethod.POST) public
@@ -60,7 +54,34 @@ public class BoardController {
 		rttr.addFlashAttribute("msg", "SUCCESS"); // RedirectAttributes의
 													// addFlashAttribute를 이용하면
 													// uri 뒤에붙는 부가정보를 가릴수 있다.
+													// 뒤의 항목은 "SUCCESS"라는
+													// "msg"를 가린다 라고 해석 하면 된다.
 		return "redirect:/board/listAll";
+	}
+
+	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+	public String remove(@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception {
+		service.remove(bno);
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		return "redirect:/board/listAll";
+	}
+
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String modifyPOSt(BoardVO board, RedirectAttributes rttr) throws Exception {
+		logger.info("mod post...........");
+
+		service.modify(board);
+		;
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		return "redirect:/board/listAll";
+	}
+
+	@RequestMapping(value = "/register", method = RequestMethod.GET) // register페이지내의
+																		// GET하는
+																		// 요소들에
+																		// 대한 적용
+	public void registerGET(BoardVO board, Model model) throws Exception {
+		logger.info("register get ...........");
 	}
 
 	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
@@ -71,9 +92,32 @@ public class BoardController {
 
 	}
 
-	@RequestMapping(value = "/read", method = RequestMethod.GET)
-	public void read(@RequestParam("bno") int bno, Model model) throws Exception { //@RequestParam은 jsp의 request.getParameter("")처럼 동작한다.
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public void modifyGET(int bno, Model model) throws Exception {
 		model.addAttribute(service.read(bno));
 	}
-	
+
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public void read(@RequestParam("bno") int bno, Model model) throws Exception { // @RequestParam은
+																					// 동작한다.
+		model.addAttribute(service.read(bno));
+	}
+
+	@RequestMapping(value = "/listCri", method = RequestMethod.GET)
+	public void listAll(Criteria cri, Model model) throws Exception {
+		logger.info("show list Page with Criteria...........");
+		model.addAttribute("list", service.listCriteria(cri));
+	}
+
+	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
+	public void listPage(Criteria cri, Model model)throws Exception{
+		logger.info(cri.toString());
+		
+		model.addAttribute("list", service.listCriteria(cri));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(131);
+		
+		model.addAttribute("pageMaker", pageMaker);
+	}
 }

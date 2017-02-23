@@ -5,7 +5,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>Spring Project</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.4 -->
     <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -35,11 +35,11 @@
       
       <header class="main-header">
         <!-- Logo -->
-        <a href="/resources/index2.html" class="logo">
+        <a href="/" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>A</b>LT</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Zerock</b> PROJECT</span>
+          <span class="logo-lg"><b>Spring</b> PROJECT</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -244,14 +244,14 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="/resources/dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-                  <span class="hidden-xs">Alexander Pierce</span>
+                  <span class="hidden-xs"></span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
                     <img src="/resources/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      Alexander Pierce - Web Developer
+                      Jinuk HA - Inha TC Student
                       <small>Member since Nov. 2012</small>
                     </p>
                   </li>
@@ -296,7 +296,7 @@
               <img src="/resources/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-              <p>Alexander Pierce</p>
+              <p>Jinuk HA</p>
 
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -314,7 +314,7 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="treeview">
+<!--             <li class="treeview">
               <a href="#">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
@@ -327,7 +327,7 @@
               <a href="#">
                 <i class="fa fa-files-o"></i>
                 <span>Layout Options</span>
-                <span class="label label-primary pull-right">4</span>
+                <span class="label label-primary pull-right"></span>
               </a>
               <ul class="treeview-menu">
                 <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
@@ -338,9 +338,9 @@
             </li>
             <li>
               <a href="../widgets.html">
-                <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">new</small>
+                <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green"></small>
               </a>
-            </li>
+            </li> 
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-pie-chart"></i>
@@ -354,7 +354,7 @@
                 <li><a href="../charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
               </ul>
             </li>
-            <li class="treeview">
+             <li class="treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
                 <span>UI Elements</span>
@@ -368,19 +368,21 @@
                 <li><a href="../UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
                 <li><a href="../UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
               </ul>
-            </li>
+            </li> -->
             <li class="treeview active">
               <a href="#">
-                <i class="fa fa-edit"></i> <span>Forms</span>
+                <i class="fa fa-edit"></i> <span>Board</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li class="active"><a href="general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
+                <li class="active"><a href="listAll"><i class="fa fa-circle-o"></i> List All</a></li>
+               <!-- listAll.jsp라고 하면 이동이 되지 않는다. 어째서일까?
                 <li><a href="advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-                <li><a href="editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
+                <li><a href="editors.html"><i class="fa fa-circle-o"></i> Editors</a></li> 
+               -->
               </ul>
             </li>
-            <li class="treeview">
+<!--             <li class="treeview">
               <a href="#">
                 <i class="fa fa-table"></i> <span>Tables</span>
                 <i class="fa fa-angle-left pull-right"></i>
@@ -440,7 +442,7 @@
                 <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
               </ul>
             </li>
-            <li><a href="/resources/documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+            <li><a href="/resources/documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li> -->
             <li class="header">LABELS</li>
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
@@ -455,8 +457,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Board Management
-            <small>Preview</small>
+            Location
+            <small>where</small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
