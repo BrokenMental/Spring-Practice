@@ -88,7 +88,7 @@ public class BoardController {
 		model.addAttribute(service.read(bno));
 	}
 
-	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+/*	@RequestMapping(value = "/modify", method = RequestMethod.POST)
 	public String modifyPOSt(BoardVO board, RedirectAttributes rttr) throws Exception {
 		logger.info("mod post...........");
 
@@ -96,7 +96,7 @@ public class BoardController {
 		;
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		return "redirect:/board/listAll";
-	}
+	}*/
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET) // register페이지내의
 																		// GET하는
@@ -106,13 +106,13 @@ public class BoardController {
 		logger.info("register get ...........");
 	}
 
-	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
 	public void listAll(Model model) throws Exception {
 
 		logger.info("show all list...........");
 		model.addAttribute("list", service.listAll());
 
-	}
+	}*/
 
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
 	public String modfiyPageingPOST(BoardVO board, Criteria cri, RedirectAttributes rttr) throws Exception {
@@ -126,10 +126,10 @@ public class BoardController {
 		return "redirect:/board/listPage";
 	}
 
-	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/modify", method = RequestMethod.GET)
 	public void modifyGET(int bno, Model model) throws Exception {
 		model.addAttribute(service.read(bno));
-	}
+	}*/
 
 	/*
 	 * @RequestMapping(value = "/read", method = RequestMethod.GET) public void
@@ -143,11 +143,11 @@ public class BoardController {
 		model.addAttribute(service.read(bno));
 	}
 
-	@RequestMapping(value = "/listCri", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/listCri", method = RequestMethod.GET)
 	public void listAll(Criteria cri, Model model) throws Exception {
 		logger.info("show list Page with Criteria...........");
 		model.addAttribute("list", service.listCriteria(cri));
-	}
+	}*/
 	
 	/*
 	 * @RequestMapping(value = "/listPage", method = RequestMethod.GET) public
