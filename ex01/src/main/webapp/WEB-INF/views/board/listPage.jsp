@@ -10,6 +10,19 @@
 	if (result == 'SUCCESS') {
 		alert("처리가 완료되었습니다.");
 	}
+
+	/* 자바스크립트로 페이징을 나타낼때 사용
+	$(".pagination li a").on("click", function(event) {
+	 event.preventDefalut();
+
+	 var targetPage = $(this).attr("href");
+
+	 var jobForm = $("#jobForm");
+	 jobForm.find("[name='page']").val(targetPage);
+	 jobForm.attr("action", "/board/listPage").attr("method", "get");
+	 jobForm.submit();
+	 }); 
+	*/
 </script>
 
 <%@ include file="../include/header.jsp"%>
@@ -35,6 +48,20 @@
 
 						<tr>
 							<td>${boardVO.bno}</td>
+							<td><a
+								href='/board/readPage?${pageMaker.makeQuery(pageMaker.cri.page)}bno=${boardVO.bno}'>${boardVO.title}</a></td>
+							<td>${boardVO.writer}</td>
+							<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+									value="${boardVO.regdate}" /></td>
+							<td><span class="badge bg-red">${boardVO.viewcnt }</span></td>
+						</tr>
+					</c:forEach>
+
+					<%--
+					<c:forEach items="${list}" var="boardVO">
+
+						<tr>
+							<td>${boardVO.bno}</td>
 							<td><a href='/board/read?bno=${boardVO.bno}'>${boardVO.title}</a></td>
 							<!-- jsp의  %=와 동일한 역할을 한다. -->
 							<td>${boardVO.writer}</td>
@@ -43,7 +70,30 @@
 							<td><span class="badge bg-red">${boardVO.viewcnt }</span></td>
 						</tr>
 					</c:forEach>
+					--%>
 				</table>
+
+				<div class="text-center">
+					<ul class="pagination">
+						<c:if test="${pageMaker.prev}">
+							<li><a
+								href="listPage${pageMaker.makeQuery(pageMaker.startPage -1)}">&laquo;</a></li>
+						</c:if>
+
+						<c:forEach begin="${pageMaker.startPage}"
+							end="${pageMaker.endPage}" var="idx">
+							<li
+								<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+								<a href="listPage${pageMaker.makeQuery(idx)}">${idx}</a>
+						</c:forEach>
+
+						<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+							<li><a
+								href="listPage${pageMaker.makeQuery(pageMaker.endPage +1)}">&raquo;</a></li>
+						</c:if>
+					</ul>
+				</div>
+				<%-- 
 				<div class="text-center">
 					<ul class="pagination">
 						<c:if test="${pageMaker.prev}">
@@ -52,15 +102,24 @@
 
 						<c:forEach begin="${pageMaker.startPage}"
 							end="${pageMaker.endPage}" var="idx">
-							<li><c:out value="${pageMaker.cri.page == idx?'class =active':''}" />>
-							<a href="listPage?page=${idx}">${idx}</a></li>
+							<li
+							<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+							<a href="listPage?page=${idx}">${idx}</a>
 						</c:forEach>
 
 						<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 							<li><a href="listPage?page=${pageMaker.endPage +1}">&raquo;</a></li>
 						</c:if>
 					</ul>
-				</div>
+				</div> 
+				--%>
+				<!-- 자바스크립트를 이용하는 방식 				
+					<form id="jobForm">
+					<input type='hidden' name="page" value=${pageMaker.cri.perPageNum}>
+					<input type='hidden' name="perPageNum"
+						value=${pageMaker.cri.perPageNum}>
+				</form>
+				-->
 			</div>
 		</div>
 	</div>
