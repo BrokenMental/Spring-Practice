@@ -69,7 +69,7 @@ public class SearchBoardController {
 
 		rttr.addFlashAttribute("msg", "SUCCESS");
 
-		return "redirct:/sboard/list";
+		return "redirect:/sboard/list";
 	}
 
 	@RequestMapping(value = "/removePage", method = RequestMethod.POST)

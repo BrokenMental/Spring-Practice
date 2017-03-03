@@ -34,7 +34,7 @@
 					<input type='hidden' name='bno' value="${boardVO.bno}"> <input
 						type='hidden' name='page' value="${cri.page}"> <input
 						type='hidden' name='perPageNum' value="${cri.perPageNum}">
-					<input type='hidden' name='searchType' value="${cri.searchType} }">
+					<input type='hidden' name='searchType' value="${cri.searchType}">
 					<input type='hidden' name='keyword' value="${cri.keyword}">
 				</form>
 
@@ -55,13 +55,13 @@
 </div>
 <!-- /.content -->
 
-<script type="text/javascript">
+<script>
 	$(document).ready(function() {
 		var formObj = $("form[role='form']"); // formObj는 아래에 나오는 form태그를 의미한다.
 
 		console.log(formObj);
 
-		$(".btn-wrning").on("click", function() {
+		$(".btn-warning").on("click", function() {
 			formObj.attr("action", "/sboard/modifyPage");
 			formObj.attr("method", "get");
 			formObj.submit();
@@ -73,12 +73,12 @@
 		});
 
 		$(".btn-primary").on("click", function() {
-			/* 정체불명의 }가 추가된다... 			
+			//정체불명의 }가 추가된다...
 			formObj.attr("method", "get");
 			formObj.attr("action", "/sboard/list");
 			formObj.submit(); 
-			*/
-			window.history.back();
+			
+			// window.history.back();
 		});
 
 	});

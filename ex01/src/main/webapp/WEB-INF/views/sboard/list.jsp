@@ -10,7 +10,6 @@
 	if (result == 'SUCCESS') {
 		alert("처리가 완료되었습니다.");
 	}
-
 </script>
 
 <%@ include file="../include/header.jsp"%>
@@ -56,6 +55,8 @@
 			<div class="box">
 				<div class="box-header with-border">
 					<h3 class="box-title">LIST PAGE</h3>
+				</div>
+				<div class="box-body">
 					<table class="table table-bordered">
 						<tr>
 							<th style="width: 10px">BNO</th>
@@ -78,7 +79,8 @@
 							</tr>
 						</c:forEach>
 					</table>
-
+				</div>
+				<div class="box-footer">
 					<div class="text-center">
 						<ul class="pagination">
 							<c:if test="${pageMaker.prev}">
@@ -91,6 +93,7 @@
 								<li
 									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
 									<a href="list${pageMaker.makeSearch(idx)}">${idx}</a>
+								</li>
 							</c:forEach>
 
 							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
@@ -102,29 +105,30 @@
 				</div>
 			</div>
 		</div>
-		<!-- /.col (left) -->
 	</div>
-	<!--  /.row -->
-</section>
+	<!-- /.col (left) -->
+</div>
+<!--  /.row --> </section>
 <div style="bottom: 0px;">
 	<%@ include file="../include/footer.jsp"%>
 </div>
 <!-- /.content -->
 
 <script>
-	$(document).ready(function() {
-		$('#searchBtn').on(
-		"click",
-		function(event) {
-			self.location = "list"
-			+ '${pageMaker.makeQuery(1)}'
-			+ "&searchType="
-			+ $("select option:selected").val()
-			+ "&keyword=" +$('#keywordInput').val();
+	$(document).ready(
+			function() {
+				$('#searchBtn').on(
+						"click",
+						function(event) {
+							self.location = "list"
+									+ '${pageMaker.makeQuery(1)}'
+									+ "&searchType="
+									+ $("select option:selected").val()
+									+ "&keyword=" + $('#keywordInput').val();
+						});
+
+				$('#newBtn').on("click", function(evt) {
+					self.location = "register";
+				});
 			});
-	
-		$('#newBtn').on("click", function(evt){
-			self.location = "register";
-		});
-	});
 </script>
