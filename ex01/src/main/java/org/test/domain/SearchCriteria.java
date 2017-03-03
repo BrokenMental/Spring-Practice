@@ -1,6 +1,7 @@
 package org.test.domain;
 
 public class SearchCriteria extends Criteria {
+
 	private String searchType;
 	private String keyword;
 
@@ -22,7 +23,7 @@ public class SearchCriteria extends Criteria {
 
 	@Override
 	public String toString() {
-		return "SearchCriteria [searchType=" + searchType + ", keyword=" + keyword + "]";
+		return super.toString() + "SearchCriteria + [searchType=" + searchType + ", keyword=" + keyword + "]";
 	}
 
 }

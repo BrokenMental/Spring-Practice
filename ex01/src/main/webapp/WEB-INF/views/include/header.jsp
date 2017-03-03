@@ -375,7 +375,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li class="active"><a href="listPage"><i class="fa fa-circle-o"></i> List Page</a></li>
+                <li class="active"><a href="../../sboard/list"><i class="fa fa-circle-o"></i> List Page</a></li>
                <!-- listAll.jsp라고 하면 이동이 되지 않는다. 어째서일까?
                 <li><a href="advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
                 <li><a href="editors.html"><i class="fa fa-circle-o"></i> Editors</a></li> 

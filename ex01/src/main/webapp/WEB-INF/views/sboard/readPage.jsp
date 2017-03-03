@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ include file="../include/header.jsp"%>
 <!-- Main content -->
@@ -11,13 +11,6 @@
 		<div class="box">
 			<div class="box-header with-border">
 				<h3 class="box-title">READ PAGE</h3>
-				<form role="form" method="post">
-					<input type='hidden' name='bno' value="${boardVO.bno}">
-					<input type='hidden' name='page' value ="${cri.page}">
-					<input type='hidden' name='perPageNum' value = "${cri.perPageNum}">
-					<input type='hidden' name='searchType' value = "${cri.searchType} }">
-					<input type='hidden' name='keyword' value = "${cri.keyword}">
-				</form>
 
 				<div class="box-body">
 					<div class="form-group">
@@ -36,11 +29,20 @@
 							readonly="readonly">
 					</div>
 				</div>
+
+				<form role="form" action="modifyPage" method="post">
+					<input type='hidden' name='bno' value="${boardVO.bno}"> <input
+						type='hidden' name='page' value="${cri.page}"> <input
+						type='hidden' name='perPageNum' value="${cri.perPageNum}">
+					<input type='hidden' name='searchType' value="${cri.searchType} }">
+					<input type='hidden' name='keyword' value="${cri.keyword}">
+				</form>
+
 				<!-- /.box-body -->
 				<div class="box-footer">
 					<button type="submit" class="btn btn-warning">Modify</button>
 					<button type="submit" class="btn btn-danger">REMOVE</button>
-					<button type="submit" class="btn btn-primary">LIST ALL</button>
+					<button type="button" class="btn btn-primary">BACK</button>
 				</div>
 			</div>
 		</div>
@@ -71,9 +73,12 @@
 		});
 
 		$(".btn-primary").on("click", function() {
+			/* 정체불명의 }가 추가된다... 			
 			formObj.attr("method", "get");
 			formObj.attr("action", "/sboard/list");
-			formObj.submit();
+			formObj.submit(); 
+			*/
+			window.history.back();
 		});
 
 	});

@@ -33,19 +33,19 @@
 					<option value="t"
 						<c:out value = "${cri.searchType eq 't'?'selected':''}"/>>
 						Title</option>
-					<option value="t"
+					<option value="c"
 						<c:out value = "${cri.searchType eq 'c'?'selected':''}"/>>
 						Content</option>
-					<option value="t"
+					<option value="w"
 						<c:out value = "${cri.searchType eq 'w'?'selected':''}"/>>
 						Writer</option>
-					<option value="t"
+					<option value="tc"
 						<c:out value = "${cri.searchType eq 'tc'?'selected':''}"/>>
 						Title OR Content</option>
-					<option value="t"
+					<option value="cw"
 						<c:out value = "${cri.searchType eq 'cw'?'selected':''}"/>>
 						Content OR Writer</option>
-					<option value="t"
+					<option value="tcw"
 						<c:out value = "${cri.searchType eq 'tcw'?'selected':''}"/>>
 						Title OR Content OR Writer</option>
 				</select> <input type="text" name='keyword' id="keywordInput"
@@ -70,11 +70,11 @@
 							<tr>
 								<td>${boardVO.bno}</td>
 								<td><a
-									href='/sboard/readPage?${pageMaker.makeSearch(pageMaker.cri.page)}bno=${boardVO.bno}'>${boardVO.title}</a></td>
+									href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}'>${boardVO.title}</a></td>
 								<td>${boardVO.writer}</td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 										value="${boardVO.regdate}" /></td>
-								<td><span class="badge bg-red">${boardVO.viewcnt }</span></td>
+								<td><span class="badge bg-red">${boardVO.viewcnt}</span></td>
 							</tr>
 						</c:forEach>
 					</table>
@@ -120,7 +120,7 @@
 			+ '${pageMaker.makeQuery(1)}'
 			+ "&searchType="
 			+ $("select option:selected").val()
-			+ "&keyword=" +('#keywordInput').val();
+			+ "&keyword=" +$('#keywordInput').val();
 			});
 	
 		$('#newBtn').on("click", function(evt){

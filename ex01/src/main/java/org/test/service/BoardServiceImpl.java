@@ -30,6 +30,11 @@ public class BoardServiceImpl implements BoardService {
 	public void modify(BoardVO board) throws Exception {
 		dao.update(board);
 	}
+	
+	@Override
+	public void modifyPage(BoardVO board) throws Exception {
+		dao.update(board); // Ã¥¿¡ ¾È³ª¿È.
+	}
 
 	@Override
 	public void remove(Integer bno) throws Exception {

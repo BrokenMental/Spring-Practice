@@ -13,6 +13,8 @@ public interface BoardService {
 	
 	public void modify(BoardVO board)throws Exception;
 	
+	public void modifyPage(BoardVO board) throws Exception; //책에 안나온다.
+	
 	public void remove(Integer bno)throws Exception;
 	
 	public List<BoardVO> listAll() throws Exception;
