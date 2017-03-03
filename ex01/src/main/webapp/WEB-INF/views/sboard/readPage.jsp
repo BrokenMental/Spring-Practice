@@ -73,12 +73,11 @@
 		});
 
 		$(".btn-primary").on("click", function() {
-			//정체불명의 }가 추가된다...
 			formObj.attr("method", "get");
 			formObj.attr("action", "/sboard/list");
 			formObj.submit(); 
 			
-			// window.history.back();
+			// window.history.back(); // 완료알림창이 뜬다.
 		});
 
 	});
