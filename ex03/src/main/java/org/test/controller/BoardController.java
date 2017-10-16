@@ -1,11 +1,9 @@
 package org.test.controller;
 
-import java.io.Reader;
-
 import javax.inject.Inject;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,7 +27,7 @@ import org.test.service.BoardService;
 @RequestMapping("/board/*") // board경로 밑의 모든 파일에 대한 요청에 대해 적용한다.
 public class BoardController {
 
-	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
+	private static final Logger logger = LogManager.getLogger(BoardController.class);
 
 	@Inject
 	private BoardService service;

@@ -1,25 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration>
 
-	<!-- Appender, Layout 설정 -->
-	<Appenders>
-		<Console name="console" target="SYSTEM_OUT">
-			<PatternLayout />
+<configuration status="WARN">
+	<appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
 		</Console>
-		<File name="file" fileName="./logs/file/sample.log" append="false">
-			<PatternLayout pattern="%d %5p [%c] %m%n" />
-		</File>
-	</Appenders>
-
-	<logger name="log4jdbc.log4j2" level="error" additivity="false">
-		<appender-ref ref="Console" />
-	</logger>
-
-	<Logger name="jdbc.sqlonly" level="off" />
-	<Logger name="jdbc.sqltiming" level="info" />
-	<Logger name="jdbc.audit" level="off" />
-	<Logger name="jdbc.resultset" level="off" />
-	<Logger name="jdbc.resultsettable" level="info" />
-	<Logger name="jdbc.connection" level="off" />
-
-</Configuration>
+	</appenders>
+	<loggers>
+		<root level="debug">
+			<appender-ref ref="Console" />
+		</root>
+	</loggers>
+</configuration>
