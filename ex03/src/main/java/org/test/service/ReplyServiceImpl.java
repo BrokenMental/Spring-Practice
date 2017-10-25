@@ -1,5 +1,6 @@
 package org.test.service;
 
+import org.test.domain.Criteria;
 import org.test.domain.ReplyVO;
 import org.test.persistence.ReplyDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,15 @@ public class ReplyServiceImpl implements ReplyService {
     @Override
     public void removeReply(Integer rno){
         dao.delete(rno);
+    }
+
+    @Override
+    public List<ReplyVO> listReplyPage(Integer bno, Criteria cri) {
+        return dao.listPage(bno,cri);
+    }
+
+    @Override
+    public int count(Integer bno) {
+        return dao.count(bno);
     }
 }
