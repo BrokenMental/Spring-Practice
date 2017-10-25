@@ -4,6 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+	#modDiv{
+		width:300px;
+		height:100px;
+		background-color: gray;
+		position: absolute;
+		top: 50%;
+		left : 50%;
+		margin-top: -50%;
+		margin-left: -150%;
+		padding: 10px;
+		z-index: 1000;
+	}
+</style>
 </head>
 <body>
 	<h2>Ajax Test Page</h2>
@@ -18,6 +32,17 @@
 		<button id="replyAddBtn">ADD REPLY</button>
 	</div>
 	<ul id="replies"></ul>
+	<div id='modDiv' >
+		<div class='modal-title'></div>
+		<div>
+			<input type='text' id='replytext'>
+		</div>
+		<div>
+			<button type="button" id="replyModBtn">Modify</button>
+			<button type="button" id="replyDelBtn">DELETE</button>
+			<button type="button" id="closeBtn">Close</button>
+		</div>
+	</div>
 
 	<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 	<script>
@@ -33,7 +58,7 @@
 							str += "<li data-rno='"+this.rno+"' class='replyLi'>"
 									+ this.rno + ":"
 									+ this.replytext
-									+ "</li>";
+									+ <button>MOD</button></li>";
 						});
 				$("#replies").html(str);
 			});
@@ -57,13 +82,24 @@
 					"replytext" : replytext
 				}),
 				success : function(result) {
-					if(result == 'SUCEESS'){
+					if(result == 'SUCCESS'){
 						alert("등록 되었습니다.");
 						getAllList();
 					}
 				}
 			});
 		});
+		
+		$("#replies").on("click", ".replyLi button", function() {
+			var reply = $(this).parent();
+			
+			var rno = reply.attr("data-rno");
+			var replytext = reply.text();
+			
+			alert(rno + " : " + replytext);
+		});
+		
+		
 	</script>
 </body>
 </html>
