@@ -5,18 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style>
-	#modDiv{
-		width:300px;
-		height:100px;
-		background-color: gray;
-		position: absolute;
-		top: 50%;
-		left : 50%;
-		margin-top: -50%;
-		margin-left: -150%;
-		padding: 10px;
-		z-index: 1000;
-	}
+#modDiv {
+	width: 300px;
+	height: 100px;
+	background-color: gray;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	/* margin-top: -50%;
+		margin-left: -150%; */
+	padding: 10px;
+	z-index: 1000;
+}
 </style>
 </head>
 <body>
@@ -31,9 +31,8 @@
 		</div>
 		<button id="replyAddBtn">ADD REPLY</button>
 	</div>
-	<ul id="replies"></ul>
-	<div id='modDiv' >
-		<div class='modal-title'></div>
+	<div id="modDiv" style="display: none;">
+		<div class="modal-title"></div>
 		<div>
 			<input type='text' id='replytext'>
 		</div>
@@ -43,31 +42,87 @@
 			<button type="button" id="closeBtn">Close</button>
 		</div>
 	</div>
+	<ul id="replies"></ul>
+	<ul class="pagination"></ul>
 
 	<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 	<script>
 		var bno = 1;
+		getPageList(1);
 
-		function getAllList(){
-			$.getJSON("/replies/all/" + bno, function(data) {
-				var str = "";
-				console.log(data.length);
+		function getAllList() {
+			$.getJSON(
+				"/replies/all/" + bno,
+				function(data) {
+					var str = "";
+					console.log(data.length);
 
-				$(data).each(
+					$(data).each(
 						function() {
 							str += "<li data-rno='"+this.rno+"' class='replyLi'>"
-									+ this.rno + ":"
-									+ this.replytext
-									+ <button>MOD</button></li>";
-						});
+								+ this.rno
+								+ ":"
+								+ this.replytext
+								+ "<button>MOD</button></li>";
+					});
 				$("#replies").html(str);
 			});
 		}
-		
+
+		function getPageList(page) {
+			$.getJSON(
+				"/replies/" + bno + "/" + page,
+				function(data) {
+				var str = "";
+				
+				$(data.list).each(
+					function() {
+						str += "<li data-rno='"+this.rno+"' class = 'replyLi'>"
+							+ this.rno
+							+ ":"
+							+ this.replyext
+							+ "<button>MOD</button></li>";
+						});
+
+				$("#replies").html(str);
+				printPaging(data.pageMaker);
+				});
+		}
+
+		function printPaging(pageMaker) {
+			var str = "";
+
+			if (pageMaker.prev) {
+				str += "<li><a href='" + (pageMaker.startPage - 1)
+						+ "'> << </a></li>";
+			}
+
+			for (var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++) {
+				var strClass = pageMaker.cri.page == i ? 'class=active' : '';
+				str += "<li "+strClass+"><a href='"+i+"'>" + i + "</a></li>";
+			}
+
+			if (pageMaker.next) {
+				str += "<li><a href='" + (pageMaker.endPage + 1)
+						+ "'> >> </a></li>";
+			}
+			$('.pagination').html(str);
+		}
+
+		$("#replies").on("click", ".replyLi button", function() {
+			var reply = $(this).parent();
+			var rno = reply.attr("data-rno");
+			var replytext = reply.text();
+
+			$(".modal-title").html(rno);
+			$("#replytext").val(replytext);
+			$("#modDiv").show("slow");
+		});
+
 		$("#replyAddBtn").on("click", function() {
 			var replyer = $("#newReplyWriter").val();
 			var replytext = $("#newReplyText").val();
-			
+
 			$.ajax({
 				type : 'post',
 				url : '/replies',
@@ -82,24 +137,62 @@
 					"replytext" : replytext
 				}),
 				success : function(result) {
-					if(result == 'SUCCESS'){
+					if (result == "SUCCESS") {
 						alert("등록 되었습니다.");
 						getAllList();
 					}
 				}
 			});
 		});
-		
-		$("#replies").on("click", ".replyLi button", function() {
-			var reply = $(this).parent();
-			
-			var rno = reply.attr("data-rno");
-			var replytext = reply.text();
-			
-			alert(rno + " : " + replytext);
+
+		$("#replyDelBtn").on("click", function() {
+			var rno = $(".modal-title").html();
+			var replytext = $("#replytext").val();
+			$.ajax({
+				type : 'delete',
+				url : '/replies/' + rno,
+				headers : {
+					"Content-Type" : "application/json",
+					"X-HTTP-Method-Override" : "DELETE"
+				},
+				dataType : 'text',
+				success : function(result) {
+					console.log("result: " + result);
+					if (result == "SUCCESS") {
+						alert("삭제 되었습니다.");
+						$("#modDiv").hide("slow");
+						getAllList();
+					}
+				}
+			});
 		});
-		
-		
+
+		$("#replyModBtn").on("click", function() {
+			var rno = $(".modal-title").html();
+			var replytext = $("#replytext").val();
+
+			$.ajax({
+				type : 'put',
+				url : '/replies/' + rno,
+				headers : {
+					"Content-Type" : "application/json",
+					"X-HTTP-Method-Override" : "PUT"
+				},
+				data : JSON.stringify({
+					replytext : replytext
+				}),
+				dataType : 'text',
+				success : function(result) {
+					console.log("result: " + result);
+					if (result == "SUCCESS") {
+						alert("수정 되었습니다.");
+						$("#modDiv").hid("slow");
+						//getAllList();
+						getPageList(replyPage);
+					}
+				}
+			});
+		});
 	</script>
 </body>
 </html>
