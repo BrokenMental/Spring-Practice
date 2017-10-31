@@ -4,7 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="/resources/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <style>
+#backg {
+	background-color: white;
+}
+
 #modDiv {
 	width: 300px;
 	height: 100px;
@@ -19,7 +24,7 @@
 }
 </style>
 </head>
-<body>
+<body id="backg">
 	<h2>Ajax Test Page</h2>
 
 	<div>
@@ -48,6 +53,7 @@
 	<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 	<script>
 		var bno = 1;
+		var replyPage = 1;
 		getPageList(1);
 
 		function getAllList() {
@@ -73,6 +79,7 @@
 			$.getJSON(
 				"/replies/" + bno + "/" + page,
 				function(data) {
+				console.log(data.list);
 				var str = "";
 				
 				$(data.list).each(
@@ -80,7 +87,7 @@
 						str += "<li data-rno='"+this.rno+"' class = 'replyLi'>"
 							+ this.rno
 							+ ":"
-							+ this.replyext
+							+ this.replytext
 							+ "<button>MOD</button></li>";
 						});
 
@@ -192,6 +199,12 @@
 					}
 				}
 			});
+		});
+		
+		$(".pagination").on("click", "li a", function(event){
+			event.preventDefault();
+			replyPage = $(this).attr("href");
+			getPageList(replyPage);
 		});
 	</script>
 </body>
