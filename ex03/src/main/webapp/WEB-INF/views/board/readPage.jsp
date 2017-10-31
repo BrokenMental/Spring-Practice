@@ -45,7 +45,8 @@
 	</div>
 	<!-- /.col (left) -->
 </div>
-<!--  /.row --> </section>
+<!--  /.row --> 
+</section>
 <div style="bottom: 0px;">
 	<%@ include file="../include/footer.jsp"%>
 </div>
