@@ -193,7 +193,7 @@
 					console.log("result: " + result);
 					if (result == "SUCCESS") {
 						alert("수정 되었습니다.");
-						$("#modDiv").hid("slow");
+						$("#modDiv").hide("slow");
 						//getAllList();
 						getPageList(replyPage);
 					}
