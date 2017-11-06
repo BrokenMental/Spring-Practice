@@ -91,18 +91,11 @@
 		</dependency>
 
 		<!-- Servlet -->
-		<!-- Servlet Before -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
 			<scope>provided</scope>
-		</dependency>
-		<!-- Servlet After -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
@@ -117,6 +110,7 @@
 		</dependency>
 
 		<!-- Add -->
+		<!-- tomcat 실행이 안되던 이유 중 하나는 mysql-connector-java 때문이었다. 아마 mysql을 사용하지 않는데 라이브러리를 추가해서 그런것이 아닐까 싶다. -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
@@ -126,11 +120,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${org.springframework-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>6.0.6</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
