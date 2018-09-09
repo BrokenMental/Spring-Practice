@@ -7,6 +7,7 @@
 	<name>ex01</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
+	<!-- 이곳에 버전을 명시하면 아래 dependencies에 버전을  ${}문법으로 대체 할 수 있다. -->
 	<properties>
 		<java-version>1.8</java-version>
 		<org.springframework-version>4.1.7.RELEASE</org.springframework-version>
